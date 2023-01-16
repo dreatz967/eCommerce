@@ -6,7 +6,7 @@ import HomeScreen from "./screens/HomeScreen";
 
 const App = () => {
   return (
-    <>
+    <div>
     <Header />
       <main className="py-3">
         <Container>
@@ -15,7 +15,7 @@ const App = () => {
      </main>
     <Footer />
       
-    </>
+    </div>
   )
 }
 
