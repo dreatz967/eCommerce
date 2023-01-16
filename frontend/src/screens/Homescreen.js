@@ -2,19 +2,23 @@ import React, {useState, useEffect} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import Product from '../components/Product'
 import axios from 'axios'
+import { useParams } from 'react-router'
 
 
 const Homescreen = () => {
-  const [products, setProducts] = useState([])
-    useEffect(() => {
+  const [products, setProducts] = useState({})
+  const params = useParams()  
+  
+  useEffect(() => {
       const fetchProducts =async () => {
-        const {data} = await axios.get('/api/products')
+        const res = await axios.get('/api/products/${params.id}')
+        const data = await res.json
 
         setProducts(data)
       }
 
       fetchProducts()
-    }, [] )
+    })
 
   return (
     <>
