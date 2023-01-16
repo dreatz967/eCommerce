@@ -3,7 +3,7 @@ import {LinkContainer} from 'react-router-bootstrap'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 
 const Header = () => {
-  return <Header>
+  return <header>
        <Navbar bg="dark" variat='dark' expand="lg" collapseOnSelect>
         <Container>
         <LinkContainer to='/'>
@@ -22,7 +22,7 @@ const Header = () => {
             </Navbar.Collapse>
             </Container>
         </Navbar>
-        </Header>
+        </header>
 }
 
 export default Header
