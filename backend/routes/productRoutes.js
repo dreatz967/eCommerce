@@ -1,7 +1,8 @@
 import express from 'express'
 import asyncHandler from 'express-async-handler'
 const router = express.Router()
-const Product from '../models/productModel'
+import Product from '../models/productModel.js'
+
 
 //@desc  Fetch all products
 //@route  GET /api/products
@@ -29,8 +30,7 @@ asyncHandler(async(req, res) => {
         res.status(404).json({message: ' Product not found'})
     }
     
-    res.json(product)
 })
 )
 
-export default Router
+export default router
