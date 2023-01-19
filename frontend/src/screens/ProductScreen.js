@@ -1,30 +1,27 @@
-import {React, useState, useEffect} from 'react'
-import {Link, useParams} from 'react-router-dom'
+import {React, useEffect} from 'react'
+import {Link} from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import {Row, Col, Image, ListGroup, Card, Button} from 'react-bootstrap'
 import Rating from '../components/Rating'
-import axios from 'axios'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
+import { listProductDetails } from '../actions/productActions'
 
 
 const ProductScreen = () => {
-   const [product, setProduct] = useState({})
+  const dispatch = useDispatch()
 
-   const params = useParams()
-  
-   useEffect(() => {
-    const fetchProduct =async () => {
-      const res = await axios.get(`/api/products/${params.id}`)
-      const data = await res.json()
+  const productDetails = useSelector(state=> state.productDetails)
+  const {loading, error, product} = productDetails
 
-      setProduct(data)
-    }
-
-    fetchProduct()
-  })
+  useEffect(() => {
+    dispatch(listProductDetails())
+      }, [dispatch])
 
   return (
     <>
       <Link className='btn btn-light my-3' to='/'>Go Back</Link>
-      <Row>
+      {loading ? <Loader/> : error ? <Message variatn='danger'>{error}</Message> : ( <Row>
         <Col md={6}>
           <Image src={product.image} alt={product.name} fluid />
         </Col>
@@ -69,6 +66,7 @@ const ProductScreen = () => {
                 </Col>
               </Row>
             </ListGroup.Item>
+
             <ListGroup.Item>
               <Button className='btn-block' type='button' disabled={product.countInStock === 0}>
                 Add To Cart
@@ -78,6 +76,9 @@ const ProductScreen = () => {
           </Card>
         </Col>
       </Row>
+
+      ) }
+      
     </>
   )
 }
