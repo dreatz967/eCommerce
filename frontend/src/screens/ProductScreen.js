@@ -6,6 +6,7 @@ import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listProductDetails } from '../actions/productActions'
+import { useParams } from 'react-router-dom'
 
 
 const ProductScreen = ({history}) => {
@@ -21,7 +22,7 @@ const ProductScreen = ({history}) => {
       }, [dispatch])
 
     const addToCartHandler = () => {
-      history.push(`/cart/${match.params.id}?qty=${qty}`)
+      history.push(`/cart/${params.id}?qty=${qty}`)
 
     }
 
