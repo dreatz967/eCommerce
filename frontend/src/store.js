@@ -1,9 +1,10 @@
-import { combineReducers, applyMiddleware } from 'redux'
+import { legacy_createStore as createStore, applyMiddleware, combineReducers } from 'redux'
+//import { configureStore } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { productDetailsReducer, productListReducer } from './reducers/productReducer'
 import { cartReducer } from './reducers/cartReducer'
-import { createStoreHook } from 'react-redux'
+
 
 const reducer = combineReducers({
     productList: productListReducer, productDetails: productDetailsReducer, cart: cartReducer
@@ -17,7 +18,7 @@ const initialState ={
 
 const middleware = [thunk]
 
-const store = createStoreHook(reducer, initialState, composeWithDevTools(applyMiddleware(...middleware)))
+const store = createStore(reducer, initialState, composeWithDevTools(applyMiddleware(...middleware)))
 
 
 export default store
