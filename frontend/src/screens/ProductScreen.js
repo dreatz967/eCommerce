@@ -12,6 +12,7 @@ import { useParams } from 'react-router-dom'
 const ProductScreen = ({history}) => {
   const [qty, setQty] = useState(1)
 
+  const params = useParams()  
   const dispatch = useDispatch()
 
   const productDetails = useSelector(state=> state.productDetails)
