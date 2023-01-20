@@ -2,5 +2,7 @@
     "editor.formatOnSave": true,
     "prettier.bracketSameLine": true,
     "prettier.jsxSingleQuote": true,
-    "editor.wordWrap": "bounded"
+    "editor.wordWrap": "on",
+    "prettier.useTabs": true,
+    "prettier.singleQuote": true
 }
