@@ -22,7 +22,7 @@ const Homescreen = () => {
 
   
   return (
-    <div>
+    <>
       <h1>Latest Products</h1>
       {loading ? (<Loader/> ): error ? (<Message varint='danger'>{error}</Message>) : (
       <Row>
@@ -32,7 +32,7 @@ const Homescreen = () => {
           </Col>
         ))}
       </Row>) }
-      </div>   
+      </>   
     
   )
 }
