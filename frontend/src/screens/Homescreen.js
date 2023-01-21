@@ -9,11 +9,12 @@ import { listProducts } from '../actions/productActions'
 
 
  
-const Homescreen = () => {
+const HomeScreen = () => {
   const dispatch = useDispatch()
+  const products = []
   
   const productList = useSelector(state => state.productList)
-  const {loading, error, products} = productList
+  const {loading, error} = productList
   
   
   useEffect(() => {
@@ -37,4 +38,4 @@ const Homescreen = () => {
   )
 }
 
-export default Homescreen
+export default HomeScreen
