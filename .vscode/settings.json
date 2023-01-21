@@ -4,5 +4,6 @@
     "prettier.jsxSingleQuote": true,
     "editor.wordWrap": "on",
     "prettier.useTabs": true,
-    "prettier.singleQuote": true
+    "prettier.singleQuote": true,
+    "workbench.preferredLightColorTheme": "Default Dark+"
 }
